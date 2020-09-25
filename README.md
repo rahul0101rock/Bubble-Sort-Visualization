@@ -4,10 +4,10 @@
 ![Screenshot](ss/1.png)
 ### Visual Representation of Array 
 ![Screenshot](ss/2.png)
-###
+### ............................................
 ### Some Sorting Animations Will Be Displayed...
-###
+### ............................................
 ### After Completing Sorting
 ![Screenshot](ss/3.png)
-
-
+### Console Output
+![Screenshot](ss/4.png)
