@@ -4,7 +4,6 @@ import random
 import time
 from pygame.locals import *
 def main():
-    maximum = 30
     print("--------------Bubble Sort Visualization-------------\n-----------------By Rahul choudhary-----------------")
     inarray = inarray=list(map(int,input("Enter the Array\n->").split()))
     lnum=len(inarray)+10
