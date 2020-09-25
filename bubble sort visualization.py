@@ -6,18 +6,17 @@ from pygame.locals import *
 def main():
     print("--------------Bubble Sort Visualization-------------\n-----------------By Rahul choudhary-----------------")
     inarray = inarray=list(map(int,input("Enter the Array\n->").split()))
-    lnum=len(inarray)+10
     print(inarray)
     pygame.init()
     screen = pygame.display.set_mode((960, 540))
     pygame.display.set_caption('Bubble Sort')
     screen.fill([255, 255, 255])
     pygame.font.init()
-    font = pygame.font.SysFont('Inconsolata-Regular', int(pygame.display.get_surface().get_size()[0]/lnum))
+    font = pygame.font.SysFont('Inconsolata-Regular', int(pygame.display.get_surface().get_size()[0]/(len(inarray)+10)))
     bubble_sort(screen, font, inarray)
     print(inarray)
 def bubble_sort(screen, font, inarray):
-    finished = False
+    check = False
     l = len(inarray)
     m = max(inarray)
     w, h = pygame.display.get_surface().get_size()
@@ -26,11 +25,11 @@ def bubble_sort(screen, font, inarray):
     change = 0
     screen.fill([255,255,255])
     crbox(screen, font, inarray, -1)
-    while not finished:
+    while not check:
         temp = 0
 
         if p == 0:
-            finished = chorder(inarray)
+            check = chorder(inarray)
 
         for i in range(0, p):
             if change == 1:
@@ -38,7 +37,7 @@ def bubble_sort(screen, font, inarray):
                 crbox(screen, font, inarray, p)
                 pygame.display.update()
                 change = 0
-            time.sleep(0.15)
+            time.sleep(1/len(inarray))
             if i + 1 < p and inarray[i] > inarray[i+1]:
                 temp = inarray[i]
                 inarray[i] = inarray[i+1]
@@ -59,7 +58,7 @@ def bubble_sort(screen, font, inarray):
                 pygame.quit()
                 sys.exit()
 
-    print("Finished!")
+    print("Completed Sorting!")
     screen.fill([255,255,255])
     crbox(screen, font, inarray, -1)
     pygame.display.update()
