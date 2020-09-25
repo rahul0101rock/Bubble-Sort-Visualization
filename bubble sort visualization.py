@@ -1,11 +1,11 @@
 import sys
 import pygame
-import random
 import time
 from pygame.locals import *
 def main():
     print("--------------Bubble Sort Visualization-------------\n-----------------By Rahul choudhary-----------------")
-    inarray = inarray=list(map(int,input("Enter the Array\n->").split()))
+    inarray = inarray=list(map(int,input("Enter the Array\n\n-> ").split()))
+    print("\nArray Before Sorting:\n")
     print(inarray)
     pygame.init()
     screen = pygame.display.set_mode((960, 540))
@@ -14,7 +14,10 @@ def main():
     pygame.font.init()
     font = pygame.font.SysFont('Inconsolata-Regular', int(pygame.display.get_surface().get_size()[0]/(len(inarray)+10)))
     bubble_sort(screen, font, inarray)
+    print("Array After Sorting:\n")
     print(inarray)
+    time.sleep(5)
+    pygame.quit()
 def bubble_sort(screen, font, inarray):
     check = False
     l = len(inarray)
@@ -54,15 +57,14 @@ def bubble_sort(screen, font, inarray):
 
         pygame.display.update()
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
-    print("Completed Sorting!")
+    print("\n-----------------Completed Sorting!----------------\n")
     screen.fill([255,255,255])
     crbox(screen, font, inarray, -1)
     pygame.display.update()
-    time.sleep(10)
 def crbox(screen, font, inarray, p):
     l = len(inarray)
     m = max(inarray)
